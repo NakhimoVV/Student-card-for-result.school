@@ -1,0 +1,344 @@
+@import url('/css/zeroing.css');
+@import url(https://fonts.googleapis.com/css?family=Urbanist:600,700,600italic,700italic);
+@import url(https://fonts.googleapis.com/css?family=Dosis:600,700);
+@import url(https://fonts.googleapis.com/css?family=Assistant:600);
+@import url(https://fonts.googleapis.com/css?family=PT+Serif:regular,italic,700,700italic);
+@import url(https://fonts.googleapis.com/css?family=Neucha:regular);
+@import url(https://fonts.googleapis.com/css?family=Comfortaa:300,regular,500,600,700);
+
+body {
+    font-family: "Comfortaa", sans-serif;
+    background: #696969;
+    padding: 15px 25px;
+    height: 100%;
+}
+
+//Переменные=======================================================
+$minWidth: 320px;
+$maxWidth: 1920;
+$maxWidthContainer: 1000;
+$bp1: $maxWidthContainer + 12;
+$bp2: 991.98;
+$bp3: 767.98;
+$bp4: 479.98;
+
+//=================================================================
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 15px;
+    box-shadow: 5px 9px 20px rgba(5, 64, 92, 0.75);
+    min-height: 100%;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: $maxWidthContainer + px;
+    margin: 0 auto;
+
+    @media (max-width: $bp1+px) {
+        max-width: 970px;
+    }
+
+    @media (max-width: $bp2+px) {
+        max-width: 750px;
+    }
+
+    @media (max-width: $bp3+px) {
+        max-width: none;
+        padding: 0 10px;
+    }
+}
+
+.backgroundanimation {
+    background: #13547a;
+    box-shadow: 500px 0px 500px -100px #80d0c7 inset;
+    animation: bganim 20s infinite linear alternate;
+}
+
+@keyframes bganim {
+    0% {
+        background: #13547a;
+    }
+
+    25% {
+        background: #80d0c7;
+        box-shadow: 500px 0px 500px -100px #a058ff inset;
+    }
+
+    50% {
+        background: #a058ff;
+        box-shadow: 500px 0px 500px -100px #80d0c7 inset;
+    }
+
+    85% {
+        background: #80d0c7;
+        box-shadow: 500px 0px 500px -100px #13547a inset;
+    }
+
+    100% {
+        background: #13547a;
+    }
+}
+
+//HEADER=================================================================
+.header {
+    &__content {
+        padding: 30px 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 40px;
+
+        @media (max-width:$bp2+px) {
+            flex-direction: column;
+            gap: 10px;
+            padding: 30px 20px;
+        }
+    }
+
+    &__item {}
+}
+
+.item-left {
+    text-align: center;
+
+    &__photo {
+        border: 7px solid rgb(0, 74, 109);
+        box-shadow: 0px 0px 15px 0px rgb(0, 74, 109);
+        border-radius: 50%;
+        display: inline-block;
+
+        img {
+            max-width: 250px;
+            border-radius: 50%;
+        }
+    }
+
+    &__name {
+        font-family: "Dosis";
+        font-weight: 700;
+        font-size: 40px;
+        color: rgb(48, 48, 48);
+    }
+
+    &__profession {
+        font-family: "Urbanist";
+        font-size: 20px;
+        font-weight: 600;
+        color: rgb(255, 255, 255);
+        margin: 5px 0px 0px 0px;
+    }
+}
+
+.item-right {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 2px 2px 5px 2px rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 10px 15px;
+
+    &__element {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.title {
+    font-family: "PT Serif";
+    font-size: 20px;
+    font-weight: 700;
+    font-style: italic;
+    color: #004a6d;
+}
+
+.subtitle {
+    font-family: "PT Serif";
+    font-size: 18px;
+    letter-spacing: 1px;
+    line-height: 1.4em;
+    color: white;
+}
+
+//MAIN=============================================================
+.page {
+    flex: 1 1 auto;
+    background-color: #eaf6fd;
+    border-radius: 15px;
+    padding: 10px 10px;
+    margin: -15px 0px 0px 0px;
+    position: relative;
+}
+
+.main-blocks {
+    background-color: rgba(51, 173, 189, 0.3);
+    border-radius: 15px;
+    padding: 10px 20px;
+}
+
+.title-main {
+    font-family: "Neucha";
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+    color: #004a6d;
+}
+
+.title-text {
+    font-family: "Comfortaa";
+    font-size: 18px;
+    letter-spacing: 1px;
+    line-height: 1.4em;
+}
+
+//=================================================================
+.main-targets {
+    display: flex;
+    min-height: 190px;
+    margin: 10px 0px 20px 0px;
+
+    @media (max-width:$bp3+px) {
+        flex-direction: column;
+    }
+
+    &__title {
+        flex: 0 1 40%;
+        position: relative;
+    }
+
+    &__title::after {
+        content: "";
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        background: url('/img/target.png') center / cover no-repeat;
+        position: absolute;
+        bottom: -20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        @media (max-width:$bp3+px) {
+            display: none;
+        }
+    }
+
+    &__text {
+        flex: 0 1 60%;
+        align-self: center;
+
+        li {
+            list-style: disc;
+        }
+    }
+}
+
+//=================================================================
+.main-time {
+    margin: 0px 0px 20px 0px;
+    display: flex;
+    justify-content: space-around;
+
+    @media (max-width:$bp3+px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: minmax(25px, 65px) 1fr;
+        justify-content: stretch;
+    }
+
+    &__title {
+        flex: 0 1 33.333%;
+        position: relative;
+        order: 3;
+
+        @media (max-width:$bp3+px) {
+            order: 0;
+            grid-column-start: span 2;
+        }
+    }
+
+    &__title::after {
+        content: "";
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        background: url('/img/clock.png') center / cover no-repeat;
+        position: absolute;
+        bottom: -20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        @media (max-width:$bp3+px) {
+            display: none;
+        }
+    }
+
+    &__text {
+        @media (max-width:$bp3+px) {
+            justify-self: center;
+        }
+    }
+
+    &__digital {
+        @media (max-width:$bp3+px) {
+            justify-self: center;
+        }
+    }
+}
+
+.main-courses {
+    &__title {}
+
+    &__text {
+        text-align: center;
+    }
+}
+
+//=================================================================
+.main-contacts {
+    padding: 10px 20px;
+
+    &__list {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    a {
+        font-family: "Assistant";
+        font-size: 18px;
+        font-weight: 600;
+        color: #466370;
+        transition: text-shadow .6s ease 0s;
+    }
+
+    a:hover {
+        text-shadow: 0px 5px 15px #a058ff;
+    }
+}
+
+//FOOTER===========================================================
+.footer {
+    margin: -15px 0px 0px 0px;
+    padding: 15px 0px 10px 0px;
+
+    &__content {
+        padding: 10px 30px 0px;
+        font-family: "Urbanist";
+        font-weight: 600;
+    }
+}
+
+.content-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__column {
+        flex: 1 1 33.3333%;
+        text-align: center;
+    }
+}
+
+//=================================================================
